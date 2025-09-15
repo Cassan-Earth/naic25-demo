@@ -1,42 +1,264 @@
-
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Docs & Video</title>
+  <title>Cassan Earth - National AI Challenge 2025</title>
   <style>
-    body { max-width: 900px; margin: 2rem auto; padding: 0 1rem; font-family: system-ui, sans-serif; }
-    .block { margin: 2rem 0; }
-    .frame { width: 100%; height: 80vh; border: 1px solid #ddd; }
-    video { width: 100%; height: auto; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+      line-height: 1.6; 
+      color: #333;
+      background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+      min-height: 100vh;
+    }
+    .container { 
+      max-width: 1000px; 
+      margin: 0 auto; 
+      padding: 1.5rem 1rem;
+      background: white;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+    @media (min-width: 768px) {
+      .container {
+        padding: 2rem 1rem;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+      }
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 2px solid #f0f0f0;
+    }
+    @media (min-width: 768px) {
+      .header {
+        margin-bottom: 3rem;
+        padding-bottom: 2rem;
+      }
+    }
+    .logo {
+      max-width: 150px;
+      height: auto;
+      margin-bottom: 0.3rem;
+    }
+    @media (min-width: 768px) {
+      .logo {
+        max-width: 200px;
+        margin-bottom: 0.5rem;
+      }
+    }
+    .title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+    }
+    @media (min-width: 768px) {
+      .title {
+        font-size: 2.5rem;
+      }
+    }
+    .subtitle {
+      font-size: 1rem;
+      color: #7f8c8d;
+      margin-bottom: 1rem;
+    }
+    @media (min-width: 768px) {
+      .subtitle {
+        font-size: 1.2rem;
+      }
+    }
+    .badge {
+      display: inline-block;
+      background: #e8f5e8;
+      color: #2d5016;
+      padding: 0.5rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      border: 1px solid #c8e6c9;
+    }
+    .content-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .block { 
+      background: #f8f9fa;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+    .block h2 {
+      font-size: 1.5rem;
+      color: #2c3e50;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .block h2::before {
+      content: '🎥';
+      font-size: 1.2rem;
+    }
+    .block:last-child h2::before {
+      content: '📄';
+    }
+    .frame { 
+      width: 100%; 
+      height: 400px; 
+      border: none;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    @media (min-width: 768px) {
+      .frame {
+        height: 600px;
+      }
+    }
+    video { 
+      width: 100%; 
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .description {
+      color: #666;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    .quick-nav {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .nav-link {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: #4a7c59;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: background 0.2s ease;
+      font-size: 0.9rem;
+    }
+    .nav-link:hover {
+      background: #2d5016;
+    }
+    @media (max-width: 480px) {
+      .nav-link {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+      }
+    }
+    .contact-section {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 2px solid #f0f0f0;
+      text-align: center;
+    }
+    .contact-section h3 {
+      font-size: 1.5rem;
+      color: #2c3e50;
+      margin-bottom: 1rem;
+    }
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .contact-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #2d5016;
+      margin: 0;
+    }
+    .linkedin-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: #0077b5;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: background 0.2s ease;
+      font-size: 0.9rem;
+    }
+    .linkedin-link:hover {
+      background: #005885;
+    }
+    @media (min-width: 480px) {
+      .contact-info {
+        flex-direction: row;
+        justify-content: center;
+        gap: 1.5rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>Resources</h1>
+  <div class="container">
+    <header class="header">
+      <img src="assets/CassanLogo.png" alt="Cassan Earth Logo" class="logo">
+      <h1 class="title">Cassan Earth</h1>
+      <p class="subtitle">Revolutionizing AI for a Sustainable Future</p>
+      <div class="badge">National AI Challenge 2025 • TechIreland</div>
+      
+      <nav class="quick-nav">
+        <a href="#video" class="nav-link">📹 Watch Demo</a>
+        <a href="#slides" class="nav-link">📄 View Slides</a>
+        <a href="#contact" class="nav-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 0.3rem; vertical-align: middle;">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+          Contact
+        </a>
+      </nav>
+    </header>
 
-  <div class="block">
-    <h2>PDF</h2>
-    <!-- Works in most browsers; provides a link fallback. -->
-    <object data="assets/slides.pdf" type="application/pdf" class="frame">
-      <p>Your browser can’t display PDFs. <a href="assets/slides.pdf">Download the PDF</a>.</p>
-    </object>
-  </div>
+    <div class="content-grid">
+      <div class="block" id="video">
+        <h2>Demo Video</h2>
+        <p class="description">Watch our product demonstration and learn how Cassan Earth is transforming the AI landscape.</p>
+        <video controls preload="metadata">
+          <source src="assets/video.mp4" type="video/mp4">
+          Your browser does not support the video tag. <a href="assets/video.mp4">Download video</a>.
+        </video>
+      </div>
 
-  <div class="block">
-    <h2>Video</h2>
-    <!-- Option A: self-hosted MP4 (keep size modest) -->
-    <video controls preload="metadata">
-      <source src="assets/video.mp4" type="video/mp4">
-      Your browser does not support the video tag. <a href="assets/video.mp4">Download video</a>.
-    </video>
-
-    <!-- Option B (recommended for big files): YouTube/Vimeo embed
-    <iframe width="100%" height="480" src="https://www.youtube.com/embed/VIDEO_ID"
-            title="YouTube video" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-    -->
+      <div class="block" id="slides">
+        <h2>Presentation</h2>
+        <p class="description">Our comprehensive pitch deck showcasing Cassan Earth's AI solutions and vision for the future.</p>
+        <object data="assets/slides.pdf" type="application/pdf" class="frame">
+          <p>Your browser can't display PDFs. <a href="assets/slides.pdf">Download the PDF</a>.</p>
+        </object>
+      </div>
+    </div>
+    
+    <footer class="contact-section" id="contact">
+      <h3>Contact</h3>
+      <div class="contact-info">
+        <p class="contact-name">Emer Shovlin</p>
+        <a href="https://www.linkedin.com/in/emer-shovlin-3b90b6192/" target="_blank" class="linkedin-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+          Connect on LinkedIn
+        </a>
+      </div>
+    </footer>
   </div>
 </body>
 </html>
