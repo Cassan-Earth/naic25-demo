@@ -1,0 +1,42 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Docs & Video</title>
+  <style>
+    body { max-width: 900px; margin: 2rem auto; padding: 0 1rem; font-family: system-ui, sans-serif; }
+    .block { margin: 2rem 0; }
+    .frame { width: 100%; height: 80vh; border: 1px solid #ddd; }
+    video { width: 100%; height: auto; }
+  </style>
+</head>
+<body>
+  <h1>Resources</h1>
+
+  <div class="block">
+    <h2>PDF</h2>
+    <!-- Works in most browsers; provides a link fallback. -->
+    <object data="assets/slides.pdf" type="application/pdf" class="frame">
+      <p>Your browser can’t display PDFs. <a href="assets/slides.pdf">Download the PDF</a>.</p>
+    </object>
+  </div>
+
+  <div class="block">
+    <h2>Video</h2>
+    <!-- Option A: self-hosted MP4 (keep size modest) -->
+    <video controls preload="metadata">
+      <source src="assets/video.mp4" type="video/mp4">
+      Your browser does not support the video tag. <a href="assets/video.mp4">Download video</a>.
+    </video>
+
+    <!-- Option B (recommended for big files): YouTube/Vimeo embed
+    <iframe width="100%" height="480" src="https://www.youtube.com/embed/VIDEO_ID"
+            title="YouTube video" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+    -->
+  </div>
+</body>
+</html>
